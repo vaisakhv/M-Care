@@ -237,8 +237,8 @@ def register():
             return render_template("register.html", form=form)
         print('user existing')
         flash(message='A user with same details already exists')
-        return render_template("register.html", form=form)
-    return render_template("register.html", form=form)
+        return render_template("register_original.html", form=form)
+    return render_template("register_original.html", form=form)
 
 
 @app.route('/update', methods=['POST', 'GET'])
