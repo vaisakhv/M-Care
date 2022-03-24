@@ -193,7 +193,7 @@ def register():
     print(form.errors)
     if form.is_submitted():
         try:
-            print(form.mail.data)
+            # print(form.mail.data)
             validate_email(form.mail.data)
         except EmailNotValidError as mail_err:
             flash(message='Provided email id is invalid.')
