@@ -4,6 +4,7 @@ from flask import render_template, flash, redirect, url_for, request, jsonify
 from flask_admin.contrib.sqla import ModelView
 from flask_login import login_required, LoginManager, login_user, current_user, logout_user
 from werkzeug.security import generate_password_hash, check_password_hash
+from email_validator import validate_email, EmailNotValidError
 
 from med360 import decodeSpecialties, get_age, admin, covid_data
 from models import User, Hospital, City, Role, Doctor, app, db, Scheme
@@ -188,8 +189,14 @@ def register():
         return redirect(url_for('index'))
     print(form.validate_on_submit())
     print(form.errors)
-    print(form.city.data)
     if form.is_submitted():
+        try:
+            print(form.mail.data)
+            validate_email(form.mail.data)
+        except EmailNotValidError as mail_err:
+            flash(message='Provided email id is invalid.')
+            form.mail.data = ''
+            return render_template("register_original.html", form=form)
         uname = form.uname.data
         mail = form.mail.data
         passw = form.passw.data

@@ -1,8 +1,8 @@
 from flask_wtf import FlaskForm
 from wtforms import (SelectField, StringField, IntegerField, PasswordField,
                      validators, TextAreaField, RadioField)
-from wtforms.fields.html5 import DateField
 
+from wtforms.fields.datetime import DateField
 from med360 import get_all_states, get_all_states_for_donors, spec_code_dict, get_all_roles, get_all_schemes
 
 
@@ -12,7 +12,7 @@ class SearchHospitalForm(FlaskForm):
     schemes = get_all_schemes()
     schemes.insert(0, (0, "Schemes"))
     state = SelectField('state', choices=states_in_db)
-    city = SelectField('city', choices=[], validators=[validators.DataRequired])
+    city = SelectField('city', choices=[], validators=[validators.DataRequired()])
     spec = SelectField('spec', choices=spec_codes)
     scheme = SelectField('scheme', choices=schemes)
 
@@ -50,8 +50,7 @@ class RegisterForm(FlaskForm):
                         render_kw={'placeholder': 'Username'})
     name = StringField('name', [validators.DataRequired('Please enter you name')],
                        render_kw={'placeholder': 'Name'})
-    mail = StringField('mail', [validators.DataRequired('Please enter a valid email'),
-                                validators.Email('Please enter your valid email')], render_kw={'placeholder': 'Email'})
+    mail = StringField('mail', [validators.DataRequired('Please enter a valid email')], render_kw={'placeholder': 'Email'})
     mobile = IntegerField('mobile', [validators.DataRequired('Please enter you mobile number')],
                           render_kw={'placeholder': 'Mobile Number'})
     addr = StringField('addr', [validators.DataRequired('Please enter you Address')],
@@ -66,6 +65,10 @@ class RegisterForm(FlaskForm):
                                [validators.DataRequired('Please re-enter the password'), validators.Length(min=7)],
                                render_kw={'placeholder': 'Confirm Password'})
     dob = DateField('dob', [validators.DataRequired('select a valid date')], format='%Y-%m-%d')
+    age = IntegerField('pincode', [validators.DataRequired('Please enter your age')],
+                           render_kw={'placeholder': 'Age'})
+    pan = StringField('pan', [validators.Length(max=10, min=10)],
+                      render_kw={'placeholder': 'PAN'})
     aadhar = StringField('aadhar',
                          [validators.DataRequired('Please enter you Aadhar number'), validators.Length(max=14)],
                          render_kw={'placeholder': 'Aadhaar'})
@@ -76,10 +79,10 @@ class RegisterForm(FlaskForm):
     donor = SelectField('donor', [validators.DataRequired('Please select one')],
                         choices=[('blood', 'Blood Donor'), ('organ', 'Organ Donor'), ('none', 'None'),
                                  ('both', 'Both')])
-    # organ_donation = SelectField('organ_donation', [validators.DataRequired('Please select one')],
-    #                              choices=[('True', 'Yes'), ('False', 'No')])
-    # bld_donation = SelectField('bld_donation', [validators.DataRequired('Please select one')],
-    #                            choices=[('True', 'Yes'), ('False', 'No')])
+    organ_donation = SelectField('organ_donation', [validators.DataRequired('Please select one')],
+                                 choices=[('True', 'Yes'), ('False', 'No')])
+    bld_donation = SelectField('bld_donation', [validators.DataRequired('Please select one')],
+                               choices=[('True', 'Yes'), ('False', 'No')])
 
 
 class ProfileUpdateForm(FlaskForm):

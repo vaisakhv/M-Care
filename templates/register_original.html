@@ -2,107 +2,273 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="ie=edge" http-equiv="X-UA-Compatible">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" rel="stylesheet">
-    <title>Register | Med360</title>
-    <!-- Latest compiled and minified CSS -->
-    <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" rel="stylesheet">
+    {% block content %}
+    <title>MED360 | Register</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <script src="{{ url_for('static',filename='js/fa.js') }}"></script>
+    <link href="{{ url_for('static',filename='css/neumorphic_login.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static',filename='css/bulma.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static',filename='css/nunito-google.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static',filename='css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <style>
+		.column {
+			padding-top: 0 !important;
+			padding-bottom: 0 !important;
+		}
+		.row-one {
+			padding-top: 13px;
+		}
+        form .field {
+			margin: auto;
+			max-width: 740px;
+		}
+		.control.has-icons-left .icon.is-left, .control.has-icons-right .icon.is-right {
+            color:#666666
+		}
+		    .control.has-icons-left .icon.is-left, .control.has-icons-right .icon.is-right {
+        color:#666666
+    }
+    html, body {margin: 0; height: 132%;}
+        .dip{
+            border-radius: 35px;
+            background: #E4E9F2;
+            box-shadow: inset 6px 6px 18px #b9bdc4,
+                        inset -6px -6px 18px #ffffff;
+            }
+        .dp{
+            border-radius: 50%;
+            background: linear-gradient(145deg, #f4f9ff, #cdd2da);
+            box-shadow:  34px 34px 58px #a4a8ae,
+                         -34px -34px 58px #ffffff;
+        }
+        .tile_neo{
+            border-radius: 35px;
+            background: #E4E9F2;
+            box-shadow:  6px 6px 18px #b9bdc4,
+                        -6px -6px 18px #ffffff;
+        }
+        .button {
+          position: relative;
+          background: #f3f0f1;
+          margin-bottom: 25px;
+          border-radius: 32px;
+          text-align: center;
+          cursor: pointer;
+          transition: all 0.1s ease-in-out;
+        }
+         .button span {
+          line-height: 100px;
+          font-family: "Montserrat", sans-serif;
+          font-size: 32px;
+          font-weight: semibold;
+        }
+         .button:nth-child(1) {
+          box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
+        }
+         .button:nth-child(1):hover {
+          opacity: 0.3;
+          box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
+        }
+         .button:nth-child(2) {
+          box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
+        }
+         .button:nth-child(2):hover {
+          opacity: 0.3;
+          box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
+        }
+         .button:nth-child(1):active {
+          opacity: 1;
+          box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5), inset 8px 8px 16px rgba(0, 0, 0, 0.1);
+          color: #79e3b6;
+        }
+         .button:nth-child(2):active {
+          opacity: 1;
+          box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5), inset 8px 8px 16px rgba(0, 0, 0, 0.1);
+          color: #79e3b6;
+        }
+                /* width */
+        ::-webkit-scrollbar {
+          width: 4px;
+        }
 
-    <!-- Optional theme -->
-    <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" rel="stylesheet">
+        /* Track */
+        ::-webkit-scrollbar-track {
+          background: #f1f1f1;
+        }
 
-    <link href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet">
-	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-	<script>
-	$(function() {
-		$( ".dtpick" ).datepicker();
-	});
-	</script>
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+          background: #888;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+          background: #555;
+        }
+    </style>
+    <script>
+	  window.console = window.console || function(t) {};
+
+
+    </script>
+    <script>
+	  if (document.location.search.match(/type=embed/gi)) {
+		window.parent.postMessage("resize", "*");
+	  }
+
+
+    </script>
 </head>
-<style>
-
-input[type=radio]:checked ~ .check {
-  border: 5px solid #0DFF92;
-}
-
-input[type=radio]:checked ~ .check::before{
-  background: #0DFF92;
-}
-
-<!--input[type=radio]:checked ~ label{-->
-<!--  color: #0DFF92;-->
-<!--}-->
-
-</style>
-<body>
-<div class="container">
-    <div class="row" style="margin-top: 40px">
-        <div class="col-sm-6">
-            {% block head %}
-            <form id="log-form" method="POST" name="log-form">
+<body translate="no">
+<section class="hero is-fullheight body" id="app">
+    <div class="section">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="container is-fluid">
+            <br>
+            <div class="notification is-danger is-pulled-right" style="width:25%;">
+                <button class="delete"></button>
+                {% for message in messages %}
+                <strong>{{ message }}</strong>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        {% endwith %}
+        <div class="container login is-9">
+            <div class="columns is-mobile is-centered">
+                <img alt="MED360" src="{{url_for('static', filename='img/med.png')}}" width="325px"/>
+            </div>
+            <form action="" id="register-form" method="POST">
                 {{form.hidden_tag()}}
-                <div class="wrap">
-                    {% with messages = get_flashed_messages() %}
-                    {% if messages %}
-                    <ul class="alert">
-                        {% for message in messages %}
-                        <a class="alert alert-warning">{{ message }}</a>
-                        {% endfor %}
-                    </ul>
-                    {% endif %}
-                    {% endwith %}
-                    <div class="form-group">
-                        <label>Username :&nbsp</label>
-                        {{form.uname(class_='form-control') }}
-                        <div id="error-nwl-usr"></div><br/>
-                        <label>Name :&nbsp</label>
-                        {{form.name(class_='form-control')}}<br/>
-                        <label>Email :&nbsp</label>
-                        {{form.mail(class_='form-control')}}<br/>
-                        <label>Mobile Number :&nbsp</label>
-                        {{form.mobile(class_='form-control')}}<br/>
-                        <label>Address :&nbsp</label>
-                        {{form.addr(class_='form-control')}}<br/>
-                        <label>State :&nbsp</label>
-                        {{form.state(class_='form-control')}}<br/>
-                        <label>city :&nbsp</label>
-                        {{form.city(class_='form-control')}}<br/>
-                        <label>Pincode :&nbsp</label>
-                        {{form.pincode(class_='form-control')}}<br/>
-                        <label>Password :&nbsp</label>
-                        {{form.passw(class_='form-control')}}<br/>
-                        <label>Confirm Password :&nbsp</label>
-                        {{form.conf_passw(class_='form-control')}}<br/>
-                        <div id="error-nwl"></div>
-                        <label>Date Of Brth :&nbsp</label>
-                        {{form.dob}}<br/>
-                        <label>Age :&nbsp</label>
-                        {{form.age(class_='form-control')}}<br/>
-                        <label>PAN Number :&nbsp</label>
-                        {{form.pan(class_='form-control')}}<br/>
-                        <label>Aadhar Number :&nbsp</label>
-                        {{form.aadhar(class_='form-control')}}<br/>
-                        <label>Sex :&nbsp</label>
-                        {{form.sex}}<br/>
-                        <label>Blood Group :&nbsp</label>
-                        {{form.bld_grp(class_='form-control')}}<br/>
-                        <label>Are you willing to be a blood donor ?&nbsp</label>
-                        {{form.bld_donation}}<br/>
-                        <label>Are you willing to be a organ donor ?&nbsp</label>
-                        {{form.organ_donation}}<br/>
-                        <button class="btn form-control btn-default" type="submit">
-                            <i class="fa fa-search">Register</i>
-                        </button>
+                <div class="field">
+                    <label class="label">Name</label>
+                    <div class="control has-icons-left">
+                        {{form.name(class_='input is-rounded')}}
+                        <span class="icon is-left"><em class="fa">user</em></span>
+                    </div>
+                    <label class="label">Username</label>
+                    <div class="control has-icons-right has-icons-left">
+                        {{form.uname(class_='input is-rounded')}}
+                        <span class="icon is-left"><em class="fa fa-user-circle"></em></span>
+                        <span class="icon is-right" id="username_tick"><em class="fa fa-user-circle"></em></span>
+                    </div>
+                    <div class="columns row-one">
+                        <div class="column">
+                            <label class="label">Email</label>
+                            <div class="control has-icons-left">
+                                {{form.mail(class_='input is-rounded')}}
+                                <span class="icon is-left"><em class="fa">envelope-square</em></span>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <label class="label">Mobile</label>
+                            <div class="control has-icons-left">
+                                {{form.mobile(class_='input is-rounded')}}
+                                <span class="icon is-left"><em class="fa fa-phone "></em></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns row-one">
+                        <div class="column">
+                            <label class="label">Password</label>
+                            <div class="control has-icons-left">
+                                {{form.passw(class_='input is-rounded')}}
+                                <span class="icon is-left"><em class="fa">key</em></span>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <label class="label">Confirm Passsword</label>
+                            <div class="control has-icons-left has-icons-right">
+                                {{form.conf_passw(class_='input is-rounded')}}
+                                <span class="icon is-left"><em class="fa">lock</em></span>
+                                <span class="icon is-right" id="psw_tick"><em class="fa fa-check "></em></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns row-one">
+                        <div class="column">
+                            <label class="label">Sex</label>
+                            <div class="control has-icons-right">
+                                {{form.sex(class_='input is-rounded', style='background:#D9DDE6')}}
+                                <span class="icon is-right"><em class="fa">chevron-down</em></span>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <label class="label">Blood Group</label>
+                            <div class="control has-icons-right">
+                                {{form.bld_grp(class_='input is-rounded', style='background:#D9DDE6')}}
+                                <span class="icon is-right"><em class="fa">chevron-down</em></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns row-one">
+                        <div class="column">
+                            <label class="label">Date of Birth</label>
+                            <div class="control">
+                                {{form.dob(class_='input is-rounded', style='background:#D9DDE6')}}
+                            </div>
+                        </div>
+                        <div class="column">
+                            <label class="label">Donor</label>
+                            <div class="control has-icons-right">
+                                {{form.donor(class_='input is-rounded', style='background:#D9DDE6')}}
+                                <span class="icon is-right"><em class="fa">chevron-down</em></span>
+                            </div>
+                        </div>
+                    </div>
+                    <label class="label">Address</label>
+                    <div class="control has-icons-left">
+                        {{form.addr(class_='input is-rounded')}}
+                        <span class="icon is-left"><em class="fa fa-map-marker"></em></span>
+                    </div>
+                    <div class="columns row-one">
+                        <div class="column">
+                            <label class="label">State</label>
+                            <div class="control has-icons-right">
+                                {{form.state(class_='input is-rounded', style='background:#D9DDE6')}}
+                                <span class="icon is-right"><em class="fa">chevron-down</em></span>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <label class="label">City</label>
+                            <div class="control has-icons-right">
+                                {{form.city(class_='input is-rounded', style='background:#D9DDE6')}}
+                                <span class="icon is-right"><em class="fa">chevron-down</em></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns row-one">
+                        <div class="column">
+                            <label class="label">Pincode</label>
+                            <div class="control has-icons-left">
+                                {{form.pincode(class_='input is-rounded')}}
+                                <span class="icon is-left"><em class="fa">map-pin</em></span>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <label class="label">Aadhaar</label>
+                            <div class="control has-icons-left">
+                                {{form.aadhar(class_='input is-rounded')}}
+                                <span class="icon is-left"><em class="fa">id-card</em></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button class="button is-primary tile_neo is-medium is-block is-fullwidth is-rounded"
+                                    type="submit">
+                                Register
+                            </button>
+                        </div>
                     </div>
                 </div>
             </form>
         </div>
     </div>
-</div>
+</section>
+{% endblock %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>
         let state_select = document.getElementById('state')
         let city_select = document.getElementById('city')
@@ -118,63 +284,72 @@ input[type=radio]:checked ~ .check::before{
                 });
             });
         }
-
-       let input = document.querySelector('input[name=uname]');
-       var message = document.getElementById('error-nwl-usr');
+        window.onload = function(){
+            state = state_select.value;
+                    let optionHTML = '';
+                    optionHTML += '<option value="None">Districts</option>';
+                    city_select.innerHTML = optionHTML;
+        }
+       let input = document.getElementById('uname');
+       let fa_icon = document.getElementById('username_tick');
         var goodColor = "#66cc66";
         var badColor = "#ff6666";
+        fa_icon.innerHTML = "<i class='fa'>"
        input.onkeyup = function() {
+            fa_icon.innerHTML = "<i class='fa'>"
+            fetch('/check/'+input.value).then(function(response){
+                response.json().then(function(data){
+                    if (data == false && input.value.length > 3){
+                        fa_icon.style.color = goodColor;
+                        fa_icon.innerHTML = "<i class='fa fa-check'>"
+                    }else{
+                        fa_icon.style.color = badColor;
+                        fa_icon.innerHTML = "<i class='fa fa-times-circle'>"
+                    }
+                });
+            });
             $.get('/check/' + input.value, function(data) {
-                if (data == false){
-                    message.style.color = goodColor;
-                    message.innerHTML = "Username is available!"
-                }else{
-                    message.style.color = badColor;
-                    message.innerHTML = "Username is not available!"
-                }
+
             });
         };
-    </script>
-<script>
-$('#conf_passw').on('keyup', function ()
-{
-    var pass1 = document.getElementById('passw');
-    var pass2 = document.getElementById('conf_passw');
-    var message = document.getElementById('error-nwl');
-    var goodColor = "#66cc66";
-    var badColor = "#ff6666";
 
-    if(pass1.value.length > 5)
-    {
-        pass1.style.backgroundColor = goodColor;
-        message.style.color = goodColor;
-        message.innerHTML = "character number ok!"
-    }
-    else
-    {
-        pass1.style.backgroundColor = badColor;
-        message.style.color = badColor;
-        message.innerHTML = " you have to enter at least 6 digit!"
-        return;
-    }
+		$('#conf_passw').on('keyup', function ()
+		{
+			var pass1 = document.getElementById('passw');
+			var pass2 = document.getElementById('conf_passw');
+			var message = document.getElementById('psw_tick');
+			var goodColor = "#66cc66";
+			var badColor = "#ff6666";
 
-    if(pass1.value == pass2.value)
-    {
-        pass2.style.backgroundColor = goodColor;
-        message.style.color = goodColor;
-        message.innerHTML = "ok!"
-    }
-	else
-    {
-        pass2.style.backgroundColor = badColor;
-        message.style.color = badColor;
-        message.innerHTML = " These passwords don't match"
-    }
-});
+			if(pass1.value.length > 5)
+			{
+				pass1.style.backgroundColor = goodColor;
+				message.style.color = goodColor;
+				message.innerHTML = "character number ok!"
+			}
+			else
+			{
+				pass1.style.backgroundColor = badColor;
+				message.style.color = badColor;
+				message.innerHTML = "<em class='fa fa-times'></em>"
+				return;
+			}
+
+			if(pass1.value == pass2.value)
+			{
+				pass2.style.backgroundColor = goodColor;
+				message.style.color = goodColor;
+				message.innerHTML = "<em class='fa fa-check'></em>"
+			}
+			else
+			{
+				pass2.style.backgroundColor = badColor;
+				message.style.color = badColor;
+				message.innerHTML = "<em class='fa fa-times'></em>"
+			}
+		});
+
+
 </script>
-<!-- Latest compiled and minified JavaScript -->
-<script crossorigin="anonymous" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-{% endblock %}
 </body>
 </html>

@@ -60,7 +60,7 @@ def get_all_schemes():
 
 def spec_code_dict():
     import pandas as pd
-    codes = pd.read_csv('kb/codes.csv')
+    codes = pd.read_csv(r'kb/codes.csv')
     codes.index = codes.code
     codes = codes.drop('code', axis=1)
     code_dict = []
@@ -74,7 +74,7 @@ def spec_code_dict():
 def decodeSpecialties(spec):
     if 'NA' not in str(spec):
         import pandas as pd
-        codes = pd.read_csv('kb/codes.csv')
+        codes = pd.read_csv(r'kb/codes.csv')
         codes.index = codes.code
         codes = codes.drop('code', axis=1)
         specs = []
