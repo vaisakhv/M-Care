@@ -48,7 +48,7 @@ for page_html in range(233):
             i += 1
         Dict = {title: column for (title, column) in col}
         df = pd.DataFrame(Dict)
-        if len(df) is 10:
+        if len(df) == 10:
             appended_data.append(df)
             appended_data = pd.concat(appended_data)
     final_df = final_df.append(appended_data)
