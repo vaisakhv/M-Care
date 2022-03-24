@@ -7,5 +7,4 @@ M-Care | A Total healthcare platform :syringe: :medical_symbol: :drop_of_blood:
 
 ![GitHub deployments](https://img.shields.io/github/deployments/vaisakhv/Med360/med360) ![GitHub last commit](https://img.shields.io/github/last-commit/vaisakhv/Med360)
 
-![GitHub Pipenv locked dependency version](https://img.shields.io/github/pipenv/locked/dependency-version/vaisakhv/m-care/flask) ![GitHub Pipenv locked dependency version](https://img.shields.io/github/pipenv/locked/dependency-version/vaisakhv/m-care/sqlalchemy)
-![GitHub Pipenv locked dependency version](https://img.shields.io/github/pipenv/locked/dependency-version/vaisakhv/m-care/werkzeug)  ![GitHub Pipenv locked dependency version](https://img.shields.io/github/pipenv/locked/dependency-version/vaisakhv/m-care/cryptography)
+
