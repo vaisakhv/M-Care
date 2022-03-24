@@ -46,7 +46,7 @@ def get_all_states_for_donors():
 
 def get_all_states():
     states = [(r[0], r[0]) for r in db.session.query(City.state).distinct()]
-    states.append(("None", "States"))
+    states.append(("0", "States"))
     return states
 
 

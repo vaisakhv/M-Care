@@ -87,6 +87,17 @@
 <script>
         let state_select = document.getElementById('state')
         let city_select = document.getElementById('city')
+        window.onload= function(){
+            fetch('/city/Kerala').then(function(response){
+                response.json().then(function(data){
+                    let optionHTML = '';
+                    for (city of data.cities){
+                        optionHTML += '<option value="'+city.id+'">'+city.name+'</option>';
+                    }
+                    city_select.innerHTML = optionHTML;
+                });
+            });
+        }
         state_select.onchange= function(){
             state = state_select.value;
             fetch('/city/'+state).then(function(response){
@@ -99,12 +110,13 @@
                 });
             });
         }
-        window.onload = function(){
-            state = state_select.value;
-                    let optionHTML = '';
-                    optionHTML += '<option value="None">Districts</option>';
-                    city_select.innerHTML = optionHTML;
-        }
+
+<!--        window.onload = function(){-->
+<!--                    let optionHTML = '';-->
+<!--                    optionHTML += '<option value="None">Districts</option>';-->
+<!--                    city_select.innerHTML = optionHTML;-->
+<!--        }-->
+
 		document.addEventListener('DOMContentLoaded', () => {
 		  (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
 			$notification = $delete.parentNode;

@@ -1,8 +1,10 @@
 from distutils.util import strtobool
+from types import NoneType
 
 from flask import render_template, flash, redirect, url_for, request, jsonify
 from flask_admin.contrib.sqla import ModelView
 from flask_login import login_required, LoginManager, login_user, current_user, logout_user
+from sqlalchemy.util import NoneType
 from werkzeug.security import generate_password_hash, check_password_hash
 from email_validator import validate_email, EmailNotValidError
 
@@ -340,10 +342,15 @@ def search_hospital():
         form.city.choices = [(city.uuid, city.name) for city in City.find_by_state(form.city.data)]
     if form.is_submitted():
         if form.city != "None" or form.state != "None":
-            city = City.get_by_id(form.city.data)
-            state_name = city.name
-            spec = form.spec.data
-            scheme_id = form.scheme.data
+            try:
+                city = City.get_by_id(form.city.data)
+                state_name = city.name
+                spec = form.spec.data
+                scheme_id = form.scheme.data
+            except AttributeError as att_err:
+                flash("Please select a valid State and District!!")
+                return render_template("search_hospital.html", current_user=current_user, form=form)
+
             if spec != "None" and state_name != "" and not state_name.isspace():
                 hosps = Hospital.find_by_spec_and_state(_spec=spec, _state=state_name)
                 print("scheme id is ", scheme_id)
