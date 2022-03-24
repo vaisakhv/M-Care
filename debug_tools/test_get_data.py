@@ -12,4 +12,4 @@
 # dept_page_url = [page_url.format(i) for i in range(1, int(last_page) + 1)]
 #
 # print(dept_page_url)
-print
+print("")
