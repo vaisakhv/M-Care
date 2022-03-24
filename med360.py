@@ -96,7 +96,7 @@ def get_age(dob):
 
 def covid_data():
     corona_api_key = "f4491b20c4mshe066c8a643cdf41p1d21dfjsna43b3402be92"
-    url = "https://covid-19-data.p.rapidapi.com/country"
+    url = "https://api.covid19api.com/live/country/india"
     querystring = {"format": "json", "name": "india"}
     headers = {
         'x-rapidapi-host': "covid-19-data.p.rapidapi.com",

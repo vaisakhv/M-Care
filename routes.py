@@ -78,7 +78,7 @@ def index():
     global_val = {"Global": '0'}
     if current_user.is_authenticated:
         india_val, global_val = covid_data()
-    print(india_val[0], '\n', global_val['Global'])
+    # print(india_val[0], '\n', global_val['Global'])
     return render_template('index.html', auth=is_auth(), current_user=current_user, india=india_val, world=global_val)
 
 
