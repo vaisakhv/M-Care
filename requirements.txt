@@ -32,7 +32,7 @@ importlib-metadata==4.11.3
 itsdangerous==2.0.1
 Jinja2==3.0.3
 jsonify==0.5
-lxml==4.8.0
+lxml==4.9.1
 Mako==1.2.0
 MarkupSafe==2.1.1
 numpy==1.21.5
